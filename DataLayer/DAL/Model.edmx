@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataLayer.DAL.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HT_Form">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaForm" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenForm" Type="nvarchar" MaxLength="200" />
+          <Property Name="IDGroup" Type="int" />
+          <Property Name="STT" Type="int" />
+          <Property Name="IDChucNangCha" Type="int" />
+          <Property Name="Xem" Type="bit" />
+          <Property Name="Them" Type="bit" />
+          <Property Name="Sua" Type="bit" />
+          <Property Name="Xoa" Type="bit" />
+          <Property Name="IsButtonPhanQuyen" Type="bit" />
+          <Property Name="ThamSo" Type="nvarchar" MaxLength="200" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsVisible" Type="bit" />
+          <Property Name="IsShowDialog" Type="bit" />
+          <Property Name="Image" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="HT_Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDPage" Type="int" />
+          <Property Name="MaGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenGroup" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsVisible" Type="bit" />
+          <Property Name="Image" Type="image" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+          <Property Name="STT" Type="int" />
+        </EntityType>
+        <EntityType Name="HT_Page">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaPage" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenPage" Type="nvarchar" MaxLength="200" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsVisible" Type="bit" />
+          <Property Name="STT" Type="int" />
+        </EntityType>
+        <EntityContainer Name="DataLayerDALStoreContainer">
+          <EntitySet Name="HT_Form" EntityType="Self.HT_Form" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HT_Group" EntityType="Self.HT_Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HT_Page" EntityType="Self.HT_Page" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataLayer.DAL" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HT_Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDPage" Type="Int32" />
+          <Property Name="MaGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenGroup" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsVisible" Type="Boolean" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="HT_Page">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaPage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenPage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsVisible" Type="Boolean" />
+          <Property Name="STT" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="DataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HT_Group" EntityType="Self.HT_Group" />
+          <EntitySet Name="HT_Page" EntityType="Self.HT_Page" />
+          <EntitySet Name="HT_Form" EntityType="DataLayer.DAL.HT_Form" />
+        </EntityContainer>
+        <EntityType Name="HT_Form">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaForm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenForm" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IDGroup" Type="Int32" />
+          <Property Name="STT" Type="Int32" />
+          <Property Name="IDChucNangCha" Type="Int32" />
+          <Property Name="Xem" Type="Boolean" />
+          <Property Name="Them" Type="Boolean" />
+          <Property Name="Sua" Type="Boolean" />
+          <Property Name="Xoa" Type="Boolean" />
+          <Property Name="IsButtonPhanQuyen" Type="Boolean" />
+          <Property Name="ThamSo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsVisible" Type="Boolean" />
+          <Property Name="IsShowDialog" Type="Boolean" />
+          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataLayerDALStoreContainer" CdmEntityContainer="DataEntities">
+          <EntitySetMapping Name="HT_Group">
+            <EntityTypeMapping TypeName="DataLayer.DAL.HT_Group">
+              <MappingFragment StoreEntitySet="HT_Group">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IDPage" ColumnName="IDPage" />
+                <ScalarProperty Name="MaGroup" ColumnName="MaGroup" />
+                <ScalarProperty Name="TenGroup" ColumnName="TenGroup" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HT_Page">
+            <EntityTypeMapping TypeName="DataLayer.DAL.HT_Page">
+              <MappingFragment StoreEntitySet="HT_Page">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MaPage" ColumnName="MaPage" />
+                <ScalarProperty Name="TenPage" ColumnName="TenPage" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HT_Form">
+            <EntityTypeMapping TypeName="DataLayer.DAL.HT_Form">
+              <MappingFragment StoreEntitySet="HT_Form">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="IsShowDialog" ColumnName="IsShowDialog" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="ThamSo" ColumnName="ThamSo" />
+                <ScalarProperty Name="IsButtonPhanQuyen" ColumnName="IsButtonPhanQuyen" />
+                <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+                <ScalarProperty Name="Sua" ColumnName="Sua" />
+                <ScalarProperty Name="Them" ColumnName="Them" />
+                <ScalarProperty Name="Xem" ColumnName="Xem" />
+                <ScalarProperty Name="IDChucNangCha" ColumnName="IDChucNangCha" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="IDGroup" ColumnName="IDGroup" />
+                <ScalarProperty Name="TenForm" ColumnName="TenForm" />
+                <ScalarProperty Name="MaForm" ColumnName="MaForm" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
